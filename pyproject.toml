@@ -1,0 +1,27 @@
+[project]
+name = "uv-demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "jay.xu", email = "jay.xu@lenovonetapp.com" }
+]
+requires-python = ">=3.8"
+dependencies = []
+dynamic = ["version"]
+
+[project.scripts]
+uv-demo = "uv_demo:main"
+
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.uv-dynamic-versioning]
+enable = true
+style = "pep440"  # Use PEP 440 style versioning
+dirty = true  # Add ".dirty" suffix if there are uncommitted changes
+format = "{base}.dev{distance}"  # Format version as {base}.dev{distance}
